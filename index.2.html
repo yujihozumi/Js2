@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <title>電卓</title>
+  </head>
+  
+  <body>
+  <script type="text/javascript"><!--
+  myTotal = 0;  // 現在の合計値
+  myInput = ""; // 現在入力している値
+  myCalc = "+"; // 合計と入力値の演算子
+  myFlg   = 1;  // １回前に入力したもの 0:数字 1:演算子
+
+  function myValue(myData){                 
+    myFlg = 0;                             
+    myInput += myData;                     
+    document.myForm.myLine.value = myInput; 
+  }
+
+  function myCalculate(myData){               
+    if (myFlg==0){                           
+      myFlg = 1;                              
+      myWork = myTotal + myCalc + myInput;    
+      myTotal = eval(myWork);                 
+      myInput = "";                           
+      document.myForm.myLine.value = myTotal; 
+    }
+    if (myData == "="){                    
+      myTotal = 0;                  
+      myCalc = "+";                        
+    }else{                                 
+      myCalc = myData;                     
+    }
+  }
+  
+  function Zero() {
+    if (myData.textContent === "0"){
+      myData.innerHTML = "";
+    }
+  }
+
+
+  function myC(){                           
+    myTotal = 0;                            
+    myCalc = "+";                         
+    myInput = "";                        
+    document.myForm.myLine.value = myTotal; 
+  }
+// --></script>
+
+<form name="myForm">
+<table border="1" bgcolor="#fff">
+<tr>
+<td align="center" colspan="4" bgcolor="#222"><font color="#fff">
+<strong> 電　卓</font></strong></td>
+</tr>
+<tr>
+<td colspan="3"><input type="text" size="15" name="myLine"></td>
+<td align="center"><input type="button" value="Ｃ" onclick="myC()"></td>
+</tr>
+<tr>
+<td align="center"><input type="button" value=" ７ " onclick="myValue(7)"></td>
+<td align="center"><input type="button" value=" ８ " onclick="myValue(8)"></td>
+<td align="center"><input type="button" value=" ９ " onclick="myValue(9)"></td>
+<td align="center"><input type="button" value="÷" onclick="myCalculate('/')"></td>
+</tr>
+<tr>
+<td align="center"><input type="button" value=" ４ " onclick="myValue(4)"></td>
+<td align="center"><input type="button" value=" ５ " onclick="myValue(5)"></td>
+<td align="center"><input type="button" value=" ６ " onclick="myValue(6)"></td>
+<td align="center"><input type="button" value="×" onclick="myCalculate('*')"></td>
+</tr>
+<tr>
+<td align="center"><input type="button" value=" １ " onclick="myValue(1)"></td>
+<td align="center"><input type="button" value=" ２ " onclick="myValue(2)"></td>
+<td align="center"><input type="button" value=" ３ " onclick="myValue(3)"></td>
+<td align="center"><input type="button" value="－" onclick="myCalculate('-')"></td>
+</tr>
+<tr>
+<td align="center"><input type="button" value=" ０ " onclick="myValue(0)"></td>
+<td align="center"><input type="button" value=" ・ " onclick="myValue('.')"></td>
+<td align="center"><input type="button" value=" ＋ " onclick="myCalculate('+')"></td>
+<td align="center"><input type="button" value="＝" onclick="myCalculate('=')"></td>
+</tr>
+</table>
+</form>
+
+  </body>
+</html>
