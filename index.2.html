@@ -41,24 +41,15 @@
     }
   }
   
-  function myZero(num) {
-    if(document.myForm.myLine.value = "0")myInput = num;
-    else myTotal += num;
-  }
-  
-  //function myZero(myData) {
-    //if (document.myForm.myLine.myZero == "0") myInput = myData;
-      //else myInput = myData;
-    //}
-  
-  
-  //function myZero(myData) {
-  //if (myData.textContent == "0") { 
-   //myInput = num;
-   
-  //}
 
- //}
+  
+  function myZero(num){  
+  if(myFlg == "=")Init();  
+  if(document.myForm.myLine.value == "0")myInput = num;  
+  else myInput += num;		
+  document.myForm.myLine.value = myInput;  
+}
+  
 
 
   function myC(){                           
@@ -76,7 +67,7 @@
 <strong> 電　卓</font></strong></td>
 </tr>
 <tr>
-<td colspan="3"><input type="text" size="15" name="myLine"></td>
+<td colspan="3"><input type="text" size="15" value="0" name="myLine"></td>
 <td align="center"><input type="button" value="Ｃ" onclick="myC()"></td>
 </tr>
 <tr>
@@ -99,7 +90,7 @@
 </tr>
 <tr>
 <td align="center"><input type="button" value=" ０ " onclick="myZero(0)"></td>
-<td align="center"><input type="button" value=" ・ " onclick="myValue('.')"></td>
+<td align="center"><input type="button" value=" ・ " onclick="myZero('.')"></td>
 <td align="center"><input type="button" value=" ＋ " onclick="myCalculate('+')"></td>
 <td align="center"><input type="button" value="＝" onclick="myCalculate('=')"></td>
 </tr>
