@@ -18,6 +18,12 @@
     myInput += myData;                     
     document.myForm.myLine.value = myInput; 
   }
+  
+  function myZero(myData){                 
+    myFlg = 0;                             
+    myInput += myData;                     
+    document.myForm.myLine.value = myInput; 
+  }
 
   function myCalculate(myData){               
     if (myFlg==0){                           
@@ -35,11 +41,13 @@
     }
   }
   
-  function Zero() {
-    if (myData.textContent === "0"){
-      myData.innerHTML = "";
-    }
-  }
+  //function myZero(myData) {
+    //if (myData.textContent === "0"){
+     // myData.innerHTML = "";
+    //}
+  //}
+  
+  
 
 
   function myC(){                           
@@ -79,7 +87,7 @@
 <td align="center"><input type="button" value="－" onclick="myCalculate('-')"></td>
 </tr>
 <tr>
-<td align="center"><input type="button" value=" ０ " onclick="myValue(0)"></td>
+<td align="center"><input type="button" value=" ０ " onclick="myZero(0)"></td>
 <td align="center"><input type="button" value=" ・ " onclick="myValue('.')"></td>
 <td align="center"><input type="button" value=" ＋ " onclick="myCalculate('+')"></td>
 <td align="center"><input type="button" value="＝" onclick="myCalculate('=')"></td>
